@@ -20,6 +20,7 @@ apply plugin: 'spring-boot'
 jar {
     baseName = 'hello-rest-service'
     version =  '1.0-SNAPSHOT'
+    group = 'jcc'
 }
 
 repositories {
