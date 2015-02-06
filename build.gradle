@@ -17,10 +17,14 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
+version = "1.0-SNAPSHOT"
+group = "jcc"
+//archivesBaseName = "hello-rest-service"
+
 jar {
     baseName = 'hello-rest-service'
     version =  '1.0-SNAPSHOT'
-    group = 'jcc'
+    //group = 'jcc'
 }
 
 repositories {
