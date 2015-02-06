@@ -19,14 +19,13 @@ apply plugin: 'spring-boot'
 
 version = "1.0-SNAPSHOT"
 group = "jcc"
-//archivesBaseName = "hello-rest-service"
-
+/*
 jar {
     baseName = 'hello-rest-service'
     version =  '1.0-SNAPSHOT'
     //group = 'jcc'
 }
-
+*/
 repositories {
     mavenLocal()
     mavenCentral()
