@@ -22,7 +22,7 @@ group = "jcc"
 
 jar {
     baseName = 'hello-rest-service'
-//    version =  '1.0-SNAPSHOT'
+    version =  '1.0-SNAPSHOT'
 }
 
 repositories {
