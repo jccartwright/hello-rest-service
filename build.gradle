@@ -1,7 +1,7 @@
 buildscript {
     ext {
         springBootVersion = '1.2.1.RELEASE'
-        //groovyVersion = '2.3.7'
+        groovyVersion = '2.3.7'
     }
     repositories {
         maven { url "https://repo.spring.io/libs-release" }
@@ -13,7 +13,7 @@ buildscript {
     }
 }
 
-apply plugin: 'java'
+apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
@@ -34,7 +34,7 @@ repositories {
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
-    //compile "org.codehaus.groovy:groovy-all:${groovyVersion}"
+    compile "org.codehaus.groovy:groovy-all:${groovyVersion}"
     testCompile("junit:junit")
 }
 
