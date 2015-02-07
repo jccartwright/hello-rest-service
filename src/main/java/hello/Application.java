@@ -1,6 +1,6 @@
 package hello;
 
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.SpringApplication;
 import org.apache.catalina.connector.Connector;
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
@@ -8,8 +8,7 @@ import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory
 import org.springframework.context.annotation.*;
 import org.springframework.beans.factory.annotation.*;
 
-@ComponentScan
-@EnableAutoConfiguration
+@SpringBootApplication // same as @Configuration @EnableAutoConfiguration @ComponentScan
 public class Application {
     @Value("${ajpPort}")
     private int ajpPort;
