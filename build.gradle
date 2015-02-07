@@ -16,6 +16,7 @@ buildscript {
 apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
+apply plugin: 'maven'
 
 version = "1.0-SNAPSHOT"
 group = "jcc"
@@ -26,6 +27,18 @@ jar {
     version =  '1.0-SNAPSHOT'
 }
 
+install {
+    repositories.mavenInstaller {
+        pom.project {
+            parent {
+                groupId 'org.springframework.boot'
+                artifactId 'spring-boot-starter-parent'
+                version "${project.springBootVersion}"
+            }
+        }
+    }
+}
+
 repositories {
     mavenLocal()
     mavenCentral()
@@ -33,6 +46,7 @@ repositories {
 }
 
 dependencies {
+    compile "org.springframework.boot:spring-boot-starter"
     compile("org.springframework.boot:spring-boot-starter-web")
     compile "org.codehaus.groovy:groovy-all:${groovyVersion}"
     testCompile("junit:junit")
