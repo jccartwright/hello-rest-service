@@ -20,7 +20,7 @@ apply plugin: 'maven'
 
 version = "1.0-SNAPSHOT"
 group = "jcc"
-archivesBaseName = "helo-rest-service"
+archivesBaseName = "hello-rest-service"
 
 jar {
     baseName = 'hello-rest-service'
