@@ -27,6 +27,24 @@ jar {
     version =  '1.0-SNAPSHOT'
 }
 
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            pom {
+                project {
+                    parent {
+                        groupId "org.springframework.boot"
+                        artifactId "spring-boot-starter-parent"
+                        version "${project.springBootVersion}"
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*
+// approach suggested by Dave Syer (https://stackoverflow.com/questions/23665976/unable-to-publish-to-local-maven-repo-when-using-gradle-and-spring-boot)
 install {
     repositories.mavenInstaller {
         pom.project {
@@ -38,6 +56,7 @@ install {
         }
     }
 }
+*/
 
 repositories {
     mavenLocal()
