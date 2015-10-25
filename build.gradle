@@ -1,23 +1,25 @@
 buildscript {
     ext {
-        springBootVersion = '1.2.1.RELEASE'
-        groovyVersion = '2.3.7'
+        springBootVersion = '1.2.7.RELEASE'
+        groovyVersion = '2.4.4'
     }
     repositories {
-        maven { url "https://repo.spring.io/libs-release" }
-        mavenLocal()
         mavenCentral()
     }
+
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath('io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE')
     }
 }
 
 apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
+apply plugin: 'io.spring.dependency-management'
 apply plugin: 'maven'
 
+//needed to ensure correct location in Artifactory?
 version = "1.0-SNAPSHOT"
 group = "jcc"
 archivesBaseName = "hello-rest-service"
@@ -26,6 +28,9 @@ jar {
     baseName = 'hello-rest-service'
     version =  '1.0-SNAPSHOT'
 }
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 // approach suggested by Dave Syer (https://stackoverflow.com/questions/23665976/unable-to-publish-to-local-maven-repo-when-using-gradle-and-spring-boot)
 install {
@@ -41,19 +46,16 @@ install {
 }
 
 repositories {
-    mavenLocal()
     mavenCentral()
-    maven { url "https://repo.spring.io/libs-release" }
 }
 
 dependencies {
-    compile "org.springframework.boot:spring-boot-starter"
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-actuator")
-    compile "org.codehaus.groovy:groovy-all:${groovyVersion}"
-    testCompile("junit:junit")
+    compile("org.codehaus.groovy:groovy-all")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.2.1'
+    gradleVersion = '2.7'
 }
